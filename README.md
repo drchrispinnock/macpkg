@@ -32,11 +32,11 @@ rm -f rolling
 exit
 ```
 
-4. Copy the launchctl script to LaunchDaemons. This will mean the node will
+4. Copy the relevant launchctl scripts to LaunchDaemons. This will mean the node will
 run on boot.
 
 ```
-sudo cp /usr/local/share/octez/com.tezos.octez-node.service.plist \
+sudo cp /usr/local/share/octez/octez-{node,baker,dal-node}.service.plist \
 	/Library/LaunchDaemons
 ```
 
@@ -45,4 +45,37 @@ sudo cp /usr/local/share/octez/com.tezos.octez-node.service.plist \
 sudo launchctl bootstrap system /Library/LaunchDaemons/com.tezos.octez-node.service.plist
 ```
 
+6. Set up your baker keys (on production, do something more secure than this please!)
 
+```
+$ sudo su - tezos
+$ octez-client gen keys baker --sig bls
+$ octez-client show address baker
+Hash: tz4UMrWz3z6NiABPSBPQF1arLf5oUvqmnVcM
+Public Key: BLpk1vnS47n9jBTqHkB52Zaoj1SXanmTpR93MwZ58Nh4zRJecmrxc6TbqgqMN9N5UVy4Ex1aw2AF
+$ exit
+```
+
+7. Set up the DAL node using the baker address. If you are using consensus keys, use the master baker key.
+
+```
+sudo su - tezos
+octez-dal-node config init --attester-profile=tz4UMrWz3z6NiABPSBPQF1arLf5oUvqmnVcM
+exit
+```
+
+8. Run the DAL node
+
+```
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.tezos.octez-dal-node.service.plist
+```
+
+9. Fund the baking key and stake
+
+10. Edit /Library/LaunchDaemons/com.tezos.octez-baker.service.plist, search for SETME and set the liquidity baking vote. On a test network, you can just use 'pass' without any thought. Research and vote how you want on mainnet.
+
+11. Run the Baker
+
+```
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.tezos.octez-baker.service.plist
+```
