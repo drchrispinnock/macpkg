@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>octez-dal-node.service</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/octez-dal-node</string>
+    <string>run</string>
+    <string>--data-dir</string>
+    <string>/Users/tezos/.tezos-dal-node</string>
+  </array>
+
+    <key>UserName</key>
+    <string>tezos</string>
+    <key>GroupName</key>
+    <string>tezos</string>
+  <key>KeepAlive</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>/Users/tezos/octez-dal-node.start.log</string>
+  <key>StandardOutPath</key>
+  <string>/Users/tezos/octez-dal-node.start.log</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/tezos</string>
+</dict>
+</plist>

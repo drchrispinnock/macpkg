@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>octez-signer.service</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/octez-signer</string>
+    <string>--base-dir</string>
+    <string>/Users/tezos/.tezos-signer</string>
+    <string>launch</string>
+    <string>http</string>
+    <string>signer</string>
+    <string>-M</string>
+    <string>0x10,0x11,0x12</string>
+    <string>-W</string>
+    <string>-a</string>
+    <string>0.0.0.0</string>
+  </array>
+
+    <key>UserName</key>
+    <string>tezos</string>
+    <key>GroupName</key>
+    <string>tezos</string>
+  <key>KeepAlive</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>/Users/tezos/logs/octez-signer.start.log</string>
+  <key>StandardOutPath</key>
+  <string>/Users/tezos/logs/octez-signer.start.log</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/tezos</string>
+</dict>
+</plist>
