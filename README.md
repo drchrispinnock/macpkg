@@ -2,8 +2,13 @@
 
 1. Untar in /usr/local (or somewhere appropriate for your installation).
 
+```
 cd /usr/local
 sudo tar zxvf ~/octez-macos-25.5.0-arm64-24.4.tgz
+```
+
+You might get an error about changing permissions on bin or share - you can
+ignore it.
 
 2. Setup a tezos user and group
 
