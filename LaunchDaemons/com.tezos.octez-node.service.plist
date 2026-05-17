@@ -21,9 +21,9 @@
   <key>RunAtLoad</key>
   <true/>
   <key>StandardErrorPath</key>
-  <string>/Users/tezos/octez-node.start.log</string>
+  <string>/Users/tezos/logs/octez-node.start.log</string>
   <key>StandardOutPath</key>
-  <string>/Users/tezos/octez-node.start.log</string>
+  <string>/Users/tezos/logs/octez-node.start.log</string>
   <key>WorkingDirectory</key>
   <string>/Users/tezos</string>
 </dict>
