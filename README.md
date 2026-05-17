@@ -1,4 +1,4 @@
-# MacOS
+# Makeshift MacOS binaries
 
 1. Untar in /usr/local (or somewhere appropriate for your installation).
 
