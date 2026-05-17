@@ -1,4 +1,8 @@
-# Makeshift MacOS binaries
+# Makeshift Octez MacOS binaries
+
+0. Get a tar (or build Octez yourself)
+
+Go to [packages.tzinit.org/macos](https://packages.tzinit.org/macos).
 
 1. Untar in /usr/local (or somewhere appropriate for your installation).
 
