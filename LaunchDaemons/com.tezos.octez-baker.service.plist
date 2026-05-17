@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>octez-baker.service</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/octez-baker</string>
+    <string>run</string>
+    <string>with</string>
+    <string>local</string>
+    <string>node</string>
+    <string>/Users/tezos/.tezos-node</string>
+    <string>--liquidity-baking-toggle-vote</string>
+    <string>SETME</string>
+    <string>--dal-node</string>
+    <string>http://localhost:10732</string>
+  </array>
+
+    <key>UserName</key>
+    <string>tezos</string>
+    <key>GroupName</key>
+    <string>tezos</string>
+  <key>KeepAlive</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>/Users/tezos/logs/octez-baker.start.log</string>
+  <key>StandardOutPath</key>
+  <string>/Users/tezos/logs/octez-baker.start.log</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/tezos</string>
+</dict>
+</plist>
