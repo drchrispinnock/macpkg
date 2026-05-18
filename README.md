@@ -84,4 +84,11 @@ sudo launchctl bootstrap system /Library/LaunchDaemons/com.tezos.octez-dal-node.
 sudo launchctl bootstrap system /Library/LaunchDaemons/com.tezos.octez-baker.service.plist
 ```
 
+12. If you feel like being a good citizen, run the accuser
+
+```
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.tezos.octez-accuser.service.plist
+```
+
+
 The daemons/services will start on boot.  However be aware - you will need your mac to automatically login on startup for it to work without your attention.
