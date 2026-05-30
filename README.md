@@ -2,17 +2,30 @@
 
 0. Get a tar (or build Octez yourself)
 
-Go to [packages.tzinit.org/macos](https://packages.tzinit.org/macos).
+Go to [packages.tzinit.org/macos](https://packages.tzinit.org/macos). The ones with static in the filename only rely on default MacOS libraries. The others are dynamic and you will have to install a few packages from homebrew for them.
 
 1. Untar in /usr/local (or somewhere appropriate for your installation).
 
+For static binaries:
+
 ```
+cd /usr/local
+sudo tar zxvf ~/octez-macos-25.5.0-arm64-24.4-static.tgz
+```
+
+For dynamic binaries:
+
+```
+brew install gmp libffi hidapi libev openssl zstd
 cd /usr/local
 sudo tar zxvf ~/octez-macos-25.5.0-arm64-24.4.tgz
 ```
 
+
 You might get an error about changing permissions on bin or share - you can
 ignore it.
+
+
 
 2. Setup a tezos user and group
 
