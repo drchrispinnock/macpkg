@@ -11,20 +11,31 @@ post=""
 
 [ "$2" = "dynamic" ] && static=no
 [ "$2" = "static" ] && static=yes
+
+mkdir -p build
 	
 if [ "$static" = "yes" ]; then
 	# needed for static hidapi
 	export OCAMLPARAM="_,cclib=-framework,cclib=CoreFoundation,cclib=-framework,cclib=IOKit"
 	post="-static"
-fi
 
+	if [ ! -f "$(brew --prefix hidapi)/lib/libhidapi.a" ]; then
+		cd build
+		git clone https://github.com/libusb/hidapi.git
+		cd hidapi
+		mkdir _build
+		cmake -S . -B _build -DHIDAPI_BUILD_HIDTEST=ON -DBUILD_SHARED_LIBS=OFF
+		cmake --build _build
+		cp _build/src/mac/libhidapi.a $(brew --prefix hidapi)/lib
+		cd ../..
+	fi
+fi
 
 libs="NONE"
 if [ -f libraries ]; then
 	libs=`cat libraries`
 fi
 
-mkdir -p build
 tezosdir="build/tezos"
 
 arch=`uname -m`	
